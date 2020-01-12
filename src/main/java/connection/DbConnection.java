@@ -27,7 +27,7 @@ public class DbConnection {
         Connection connection = null;
         try {connection = DriverManager.getConnection(DB_URL, LOGIN, PASSWORD);
         } catch (SQLException e) {
-            System.out.println("Connection Failed");
+            System.out.println("Failed connection");
             e.printStackTrace();
         }
         if (connection != null) {
