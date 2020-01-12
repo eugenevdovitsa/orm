@@ -17,6 +17,7 @@ public class Main {
     public static void main(String[] args) throws SQLException {
 
         // Добавление классов в ОРМ
+        // Ещё коммент
         DataClassBuilder dataClassBuilder = new DataClassBuilder();
 
         dataClassBuilder.addAnnotationClass(Users.class);
