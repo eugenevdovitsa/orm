@@ -4,6 +4,7 @@ import metadata.TableData;
 
 import java.lang.reflect.Field;
 import java.sql.*;
+import connection.*;
 
 /**
  * Пока здесь хранится и создание Statement, и примеры небольших запросов. Потом в плане разнести всё это на отдельные сущности
@@ -47,7 +48,7 @@ public class StatementBuilder {
             String query = String.format("INSERT into %s (%s) VALUES (%s)", tableName, nameFields.toString(), values.toString());
 
             // Подключаемся к базе и выполняем запрос
-            connectionDB = ConnectionDB.getConnection();
+            connectionDB = DbConnection.getConnection();
             statement = connectionDB.prepareStatement(query);
             statement.executeUpdate();
 
