@@ -1,0 +1,58 @@
+String или char???
+character varying(n), varchar(n)	строка ограниченной переменной длины
+character(n), char(n)	строка фиксированной длины, дополненная пробелами
+text	строка неограниченной переменной длины
+
+
+У них на сайте написано, что всё вот это стринга
+CHAR
+BPCHAR
+VARCHAR, LONGVARCHAR
+
+
+Подсказка: По быстродействию эти три типа практически не отличаются друг от друга,
+не считая большего размера хранения для типа с дополняющими пробелами и нескольких
+машинных операций для проверки длины при сохранении строк в колонке с ограниченной длиной.
+Хотя в некоторых СУБД тип character(n) работает быстрее других, в PostgreSQL это не так;
+деле character(n) обычно оказывается медленнее остальных типов из-за большего размера данных.
+В большинстве случаев вместо него лучше применять text или character varying.
+
+https://www.enterprisedb.com/edb-docs/d/edb-postgres-connectors/user-guides/jdbc-guide/11.0.1/EDB_Postgres_Advanced_Server_JDBC_Connector_Guide.1.44.html
+
+smallint = Integer
+integer = Integer
+bigint = Long
+decimal / numeric = BigDecimal
+real = Float
+double precision = Double
+date = Date (формат!!!)
+time, timestamp = Timestamp or Time?
+bytea = byte[]
+boolean = Boolean
+Учесть!
+Функция ввода данных типа boolean воспринимает следующие строковые представления состояния «true»:
+true
+yes
+on
+1
+и следующие представления состояния «false»:
+false
+no
+off
+0
+
+Совместимость
+В стандарте SQL описаны следующие типы (или их имена):
+bigint, bit, bit varying, boolean, char, character varying, character, varchar, date, double precision,
+integer, interval, numeric, decimal, real, smallint, time (с часовым поясом и без), timestamp (с часовым поясом и без), xml.
+
+
+
+Нет соответствия для автоинкрементов (пока)
+smallserial	2 байта	небольшое целое с автоувеличением	1 .. 32767
+serial	4 байта	целое с автоувеличением	1 .. 2147483647
+bigserial	8 байт	большое целое с автоувеличением	1 .. 9223372036854775807
+
+
+
+
